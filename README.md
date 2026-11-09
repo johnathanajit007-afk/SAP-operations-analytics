@@ -1,9 +1,32 @@
 # SAP S/4HANA Operations Analytics & SLA Dashboard
 
-## Executive Summary
-This enterprise data pipeline and automated reporting framework simulates and ingests logistics data from SAP S/4HANA (`VBAK`, `VBAP`, `LIKP`, `LIPS` schemas). It automates On-Time In-Full (OTIF) SLA breach tracking, identifies regional fulfillment latency, and outputs executive auditing dashboards using Python, SQL, and Excel VBA.
+An end-to-end operational analytics pipeline and interactive Power BI dashboard that extracts SAP S/4HANA logistics data, executes SQL-driven SLA metrics aggregation, and flags depot-level delivery breaches.
 
-The project supports both local synthetic ERP data generation and live cloud integration with the SAP Business Accelerator Hub via OData REST APIs.
+![SAP SLA Dashboard Preview](dashboard_preview.png)
+![SAP SLA Workflow Demo](sap_operations_dashboard_demo.gif)
+
+---
+
+## 📌 Executive Summary
+This project models real-time logistics analytics for an enterprise SAP S/4HANA deployment. It ingests order fulfillment datasets, calculates key metrics such as **On-Time In-Full (OTIF) %**, identifies operational latency across regional depots, and isolates SLA breaches for supply chain decision-makers.
+
+---
+
+## 🛠️ Repository Architecture & File Structure
+
+```text
+sap-operations-analytics/
+├── SAP_Operations_Analytics_Dashboard.pbix  # Interactive Power BI Report
+├── generate_sap_data.py                    # Synthetic SAP S/4HANA Order Data Generator
+├── process_sap_data.py                     # SQL Aggregation Engine & SLA Breach Logic
+├── fetch_sap_sandbox.py                    # SAP Business Accelerator Hub API Integration
+├── Automate_SLA_Report.bas                 # VBA Macro for Executive Excel Formatting
+├── sap_operations.db                       # Local SQLite Relational SAP Database
+├── sap_sla_kpi_summary.csv                 # Processed KPI Summary Export
+├── dashboard_preview.png                   # Dashboard Visual Preview
+├── sap_operations_dashboard_demo.gif       # Interactive Dashboard Demo
+└── README.md                               # Project Documentation
+```
 
 ## Key Features & Architecture
 1. **Cloud & Telemetry Ingestion (`fetch_sap_sandbox.py` & `generate_sap_data.py`):** 
